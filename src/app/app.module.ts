@@ -15,9 +15,6 @@ import { PostItemComponent } from './post-item/post-item.component';
     BrowserModule
   ],
   providers: [],
-  bootstrap: [
-    AppComponent,
-    PostItemComponent
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
