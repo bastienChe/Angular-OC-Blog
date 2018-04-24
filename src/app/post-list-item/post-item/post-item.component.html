@@ -1,21 +1,18 @@
-
-<div class='list-group-item' style="margin-top:20px;" [ngClass]="
-                                        {'list-group-item-success': loveIts > 0,
-                                         'list-group-item-danger': loveIts < 0}">
-
-  <div class="col-md-12" >
-    <h6 style="float:right;"><i> --  {{created_at | date: 'EEEE d MMMM y'}} </i></h6>
-    <h3 class="col-md-8 " style="font-weight:bold;">{{title}}</h3>  
-  </div>
-  <br>
-
-  <div class="col-md-12" style="margin-top:20px;">
-    {{content}}
-  </div>
-
-  <br>
-  <div class='text-center' style="margin-top:20px;">
-    <button class='btn btn-success' (click)="updateHits('+')">Like <div *ngIf="loveIts > 0">{{absLoveIts()}}</div> </button>
-    <button class='btn btn-error' (click)="updateHits('-')">Don't Like <div *ngIf="loveIts < 0"> {{ absLoveIts() }} </div></button>
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Les posts</h2>
+    <div class="list-group">
+      <button
+        class="list-group-item"
+        *ngFor="let post of posts; let i = index">
+        <h3 class="list-group-item-heading">
+          {{ post.title }} {{i}}
+          <button class="btn btn-default pull-right" (click)="onDeleteBook(book)">
+            <span class="glyphicon glyphicon-minus"></span>
+          </button>
+        </h3>
+        <p class="list-group-item-text">{{ post.content }}</p>
+      </button>
+    </div>
   </div>
 </div>

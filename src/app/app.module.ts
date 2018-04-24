@@ -3,13 +3,20 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { PostItemComponent } from './post-item/post-item.component';
+import { PostItemComponent } from './post-list-item/post-item/post-item.component';
 import { PostListItemComponent } from './post-list-item/post-list-item.component';
 import { PostFormComponent } from './post-list-item/post-form/post-form.component';
 import { HeaderComponent } from './header/header.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { Routes, RouterModule } from '@angular/router';
+import { PostItemService } from './services/post-item.service';
 
+const appRoutes: Routes = [
+  { path: 'postList', component: PostListItemComponent },
+  { path: '', redirectTo:'postList', pathMatch: 'full'},
+  { path: '**', redirectTo:'postList'}
+];
 
 @NgModule({
   declarations: [
@@ -22,9 +29,12 @@ import { SignupComponent } from './auth/signup/signup.component';
     SignupComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    PostItemService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
