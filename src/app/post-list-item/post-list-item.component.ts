@@ -17,6 +17,13 @@ export class PostListItemComponent implements OnInit {
   posts: Post[];
   postSubscription: Subscription;
 
+  like(post: Post) {
+    this.postService.like(post);
+  }
+
+  unlike(post: Post) {
+    this.postService.unlike(post);
+  }
 
   ngOnInit() {
     // tableau de posts vide
