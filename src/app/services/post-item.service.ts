@@ -47,7 +47,7 @@ export class PostItemService {
     this.emitPost();
   }
 
-  viewSinglePost (id:number) {
+  viewSinglePost (id: number) {
 
   }
 

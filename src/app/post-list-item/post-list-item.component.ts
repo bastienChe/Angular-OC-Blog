@@ -25,6 +25,12 @@ export class PostListItemComponent implements OnInit {
     this.postService.unlike(post);
   }
 
+  viewSinglePost(id: number) {
+
+    this.router.navigate(['/post', id]); 
+
+  }
+
   ngOnInit() {
     // tableau de posts vide
     

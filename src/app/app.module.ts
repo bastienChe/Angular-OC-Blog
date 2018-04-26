@@ -14,6 +14,7 @@ import { PostItemService } from './services/post-item.service';
 
 const appRoutes: Routes = [
   { path: 'postList', component: PostListItemComponent },
+  { path: 'post/:id',  component: PostItemComponent },
   { path: '', redirectTo:'postList', pathMatch: 'full'},
   { path: '**', redirectTo:'postList'}
 ];
