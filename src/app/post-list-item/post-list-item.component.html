@@ -7,24 +7,24 @@
         <div [ngClass]="{'list-group-item': true,
             'list-group-item-success': post.nbLike > 0,
             'list-group-item-danger': post.nbLike < 0}"
-            (click)="viewSinglePost(i)">
-          <h3 class="list-group-item-heading">
-            {{ post.title }} 
-            
+            style="margin-top:20px;">
+          <h3 class="list-group-item-heading"  >
+            <span (click)="viewSinglePost(i)" style= "cursor: pointer;color: rgb(0, 0, 129)">{{ post.title }} </span>
             <div class="pull-right"><h5>le {{ post.date | date : "dd.MM.y" }}</h5>
-              <button class="btn btn-default pull-right" (click)="onDeleteBook(book)">
+              <button class="btn btn-default pull-right" (click)="onDeletePost(post)">
                 <span class="glyphicon glyphicon-minus"></span>
               </button>
             </div>
-            
-
           </h3>
-
           <br>
-          <p class="list-group-item-text">{{ post.content }}</p>
+          <div>
+            <p class="list-group-item-text">{{ post.content }}</p>
+          </div>
+          <div style="margin-top: 25px;">
             <button class='btn btn-success' (click)='like(post)'>Like</button>
             <button class='btn btn-danger' (click)='unlike(post)'>unLike</button>
-            <button class='btn '> {{ post.nbLike }}</button>
+            <button class='btn'> {{ post.nbLike }}</button>
+          </div>
         </div>
       </div>
 

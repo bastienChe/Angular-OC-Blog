@@ -31,6 +31,12 @@ export class PostListItemComponent implements OnInit {
 
   }
 
+  onDeletePost(post: Post) {
+    if (confirm( 'Voulez-vous supprimer le post : ' + post.getTitle() + '?' ) ) {
+      alert('supprimé');
+    }
+  }
+
   ngOnInit() {
     // tableau de posts vide
 

@@ -10,4 +10,8 @@ export class Post {
         this.nbLike--;
     }
 
+    public getTitle() {
+        return this.title;
+    }
+
 }
