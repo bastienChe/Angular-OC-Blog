@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Post } from '../../models/post.model';
+import { PostItemService } from '../../services/post-item.service';
+import { Subscription } from 'rxjs/Subscription';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-item',
@@ -7,23 +11,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PostItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private postService: PostItemService,
+    private router: Router) { }
+
+  post: Post;
 
   ngOnInit() {
+    debugger;
+    this.post = new Post('', '', new Date(), 0);
+    const id = this.route.snapshot.params['id'];
+    this.postService.getSinglePost(+id).then(
+      (post: Post) => {
+        debugger;
+        this.post = post;
+      }
+    );
   }
-
-  /*
-  absLoveIts(){
-    return Math.abs(this.loveIts);
-  }
-
-  updateHits(_symbol){
-    if(_symbol === '+'){
-      this.loveIts++;
-    }
-    else if(_symbol === '-'){
-      this.loveIts--;
-    }
-  }*/
 
 }

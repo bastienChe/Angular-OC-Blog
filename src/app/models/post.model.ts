@@ -1,6 +1,6 @@
-export class Post{
+export class Post {
 
-    constructor(private title: string, private content: string, private date:Date, private nbLike = 0 ){ }
+    constructor(private title: string, private content: string, private date: Date, private nbLike = 0 ) { }
 
     public uplike() {
         this.nbLike++;
@@ -9,4 +9,5 @@ export class Post{
     public downLike() {
         this.nbLike--;
     }
+
 }

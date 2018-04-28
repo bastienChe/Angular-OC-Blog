@@ -27,13 +27,13 @@ export class PostListItemComponent implements OnInit {
 
   viewSinglePost(id: number) {
 
-    this.router.navigate(['/post', id]); 
+    this.router.navigate(['/post', id]);
 
   }
 
   ngOnInit() {
     // tableau de posts vide
-    
+
     this.postSubscription = this.postService.postItemSubject.subscribe(
       (posts: Post[]) => {
         this.posts = posts;

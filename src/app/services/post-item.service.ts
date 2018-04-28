@@ -9,17 +9,28 @@ export class PostItemService {
 
   postItemSubject = new Subject<Post[]>();
 
-  constructor() { }
+  constructor() {
+
+    const firstPost = new Post('test', 'Content', new Date(), 0);
+    const secondPost = new Post('test2', 'Content2', new Date(), 0);
+    const thirdPost = new Post('test3', 'Content3', new Date(), 0);
+    const fourthPost = new Post('test4', 'Content4', new Date(), 0);
+
+    this.postItems.push(firstPost);
+    this.postItems.push(secondPost);
+    this.postItems.push(thirdPost);
+    this.postItems.push(fourthPost);
+  }
 
   emitPost() {
     this.postItemSubject.next(this.postItems);
   }
 
-  savePost (){
+  savePost () {
 
   }
 
-  deletePost(id:number) {
+  deletePost(id: number) {
 
   }
 
@@ -35,20 +46,16 @@ export class PostItemService {
 
   viewPosts() {
 
-    var firstPost = new Post('test','Content', new Date(),0);
-    var secondPost = new Post('test2','Content2', new Date(),0);
-    var thirdPost = new Post('test3','Content3', new Date(),0);
-    var fourthPost = new Post('test4','Content4', new Date(),0);
 
-    this.postItems.push(firstPost);
-    this.postItems.push(secondPost);
-    this.postItems.push(thirdPost);
-    this.postItems.push(fourthPost);
     this.emitPost();
   }
 
-  viewSinglePost (id: number) {
-
+  getSinglePost (id: number) {
+    return new Promise(
+      (resolve, reject) => {
+        resolve(this.postItems[id]);
+      },
+    );
   }
 
 }
