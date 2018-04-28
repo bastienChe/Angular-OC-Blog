@@ -1,1 +1,14 @@
-{{post.title}}
+<div class="bs-exemple">
+    <div class="col-md-12">
+        <h2 class="pull-left col-md-8" style="margin-top:0px;">{{post.title}} </h2><h4 class="pull-right col-md-4" style="margin-top:10px;">{{ post.date | date:'dd.MM.yyyy'}}</h4>
+        <div class="page-header">
+            
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <p>{{post.content}}</p>
+</div>
+<div class="col-md-12" style="margin-top: 50px;text-align: center;">
+    <button class="btn btn-success" (click)="back()">Revenir à la liste</button>
+</div>
