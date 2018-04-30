@@ -11,12 +11,14 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { Routes, RouterModule } from '@angular/router';
 import { PostItemService } from './services/post-item.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'postList', component: PostListItemComponent },
   { path: 'post/:id',  component: PostItemComponent },
-  { path: '', redirectTo:'postList', pathMatch: 'full'},
-  { path: '**', redirectTo:'postList'}
+  { path: 'postForm', component: PostFormComponent },
+  { path: '', redirectTo: 'postList', pathMatch: 'full'},
+  { path: '**', redirectTo: 'postList'}
 ];
 
 @NgModule({
@@ -31,7 +33,9 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     PostItemService

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PostItemService } from '../../services/post-item.service';
+import { Post } from '../../models/post.model';
 
 @Component({
   selector: 'app-post-form',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private postService: PostItemService) {
+  }
+
+  postForm: FormGroup;
+
 
   ngOnInit() {
+    this.initForm();
+  }
+
+  initForm() {
+    this.postForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      content: ['', Validators.required],
+    });
+  }
+
+  onSavePost() {
+
   }
 
 }
