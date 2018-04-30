@@ -6,22 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## But : 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Le but de ce projet est simple.
+Il permet de simuler la création d'un blog où chaque personne est capable de supprimer des posts ou d'en créer d'autres (voir plus tard pour l'autentification, la création de comptes et la mise en place de l'authguard routes [canActivate] via firebase auth).
+Il y a aussi un système de 'likes' permettant de changer la couleur de fond du poste en vue Liste.
+Utilisation d'Angular (routeur, subjects, firebase components), RXJS et FireBase
