@@ -26,8 +26,8 @@ export class PostItemService {
     this.postItemSubject.next(this.postItems);
   }
 
-  savePost () {
-
+  createNewPost (post: Post) {
+    this.postItems.push(post);
   }
 
   deletePost(id: number) {
