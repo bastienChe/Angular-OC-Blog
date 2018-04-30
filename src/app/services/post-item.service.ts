@@ -31,7 +31,8 @@ export class PostItemService {
   }
 
   deletePost(id: number) {
-
+    this.postItems.splice(id, 1);
+    this.emitPost();
   }
 
   like(post: Post) {

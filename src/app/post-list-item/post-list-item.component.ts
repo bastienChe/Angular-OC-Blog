@@ -31,9 +31,9 @@ export class PostListItemComponent implements OnInit {
 
   }
 
-  onDeletePost(post: Post) {
+  onDeletePost(post: Post, id: number) {
     if (confirm( 'Voulez-vous supprimer le post : ' + post.getTitle() + '?' ) ) {
-      alert('supprimé');
+      this.postService.deletePost(id);
     }
   }
 
