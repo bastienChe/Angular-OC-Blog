@@ -10,8 +10,8 @@
             style="margin-top:20px;">
           <h3 class="list-group-item-heading"  >
             <span (click)="viewSinglePost(i)" style= "cursor: pointer;color: rgb(0, 0, 129)">{{ post.title }} </span>
-            <div class="pull-right"><h5>le {{ post.date | date : "dd.MM.y" }}</h5>
-              <button class="btn btn-default pull-right" (click)="onDeletePost(post,i)">
+            <div class="pull-right"><h5>le {{ post.date | date : "dd.MM.y - H:MM" }}</h5>
+              <button class="btn btn-default pull-right" (click)="onDeletePost(post.title,i)">
                 <span class="glyphicon glyphicon-minus"></span>
               </button>
             </div>

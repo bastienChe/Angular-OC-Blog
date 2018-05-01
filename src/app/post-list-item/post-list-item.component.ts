@@ -29,15 +29,14 @@ export class PostListItemComponent implements OnInit {
     this.router.navigate(['/post', id]);
   }
 
-  onDeletePost(post: Post, id: number) {
-    if (confirm( 'Voulez-vous supprimer le post : ' + post.getTitle() + '?' ) ) {
+  onDeletePost(title: string, id: number) {
+    if (confirm( 'Voulez-vous supprimer le post : ' + title + '?' ) ) {
       this.postService.deletePost(id);
     }
   }
 
   ngOnInit() {
     // tableau de posts vide
-
     this.postSubscription = this.postService.postItemSubject.subscribe(
       (posts: Post[]) => {
         this.posts = posts;

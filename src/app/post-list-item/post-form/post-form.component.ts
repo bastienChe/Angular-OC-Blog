@@ -33,7 +33,7 @@ export class PostFormComponent implements OnInit {
   onSavePost() {
     const title = this.postForm.get('title').value;
     const content = this.postForm.get('content').value;
-    const newPost = new Post(title, content, new Date());
+    const newPost = new Post(title, content, Date.now());
     this.postService.createNewPost(newPost);
     this.router.navigate(['/postList']);
   }
