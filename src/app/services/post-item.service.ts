@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../models/post.model';
 import { Subject } from 'rxjs/Subject';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class PostItemService {
@@ -10,16 +11,6 @@ export class PostItemService {
   postItemSubject = new Subject<Post[]>();
 
   constructor() {
-
-    const firstPost = new Post('test', 'Content', new Date(), 0);
-    const secondPost = new Post('test2', 'Content2', new Date(), 0);
-    const thirdPost = new Post('test3', 'Content3', new Date(), 0);
-    const fourthPost = new Post('test4', 'Content4', new Date(), 0);
-
-    this.postItems.push(firstPost);
-    this.postItems.push(secondPost);
-    this.postItems.push(thirdPost);
-    this.postItems.push(fourthPost);
   }
 
   emitPost() {
@@ -28,26 +19,39 @@ export class PostItemService {
 
   createNewPost (post: Post) {
     this.postItems.push(post);
+    this.savePosts();
+    this.emitPost();
   }
 
-  deletePost(id: number) {
+  savePosts () {
+    firebase.database().ref('/posts').set(this.postItems);
+  }
+
+  deletePost (id: number) {
     this.postItems.splice(id, 1);
+    this.savePosts();
     this.emitPost();
   }
 
-  like(post: Post) {
-    post.uplike();
+  like (index: number) {
+    this.postItems[index].nbLike++;
+    this.savePosts();
     this.emitPost();
   }
 
-  unlike(post: Post) {
-    post.downLike();
+  unlike (index: number) {
+    this.postItems[index].nbLike--;
+    this.savePosts();
     this.emitPost();
   }
 
   viewPosts() {
-
-
+    firebase.database()
+      .ref('/posts')
+      .on('value', (data) => {
+      this.postItems = data.val() ? data.val() : [];
+      this.emitPost();
+      });
     this.emitPost();
   }
 

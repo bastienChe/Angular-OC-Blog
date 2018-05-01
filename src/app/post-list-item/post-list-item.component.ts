@@ -17,18 +17,16 @@ export class PostListItemComponent implements OnInit {
   posts: Post[];
   postSubscription: Subscription;
 
-  like(post: Post) {
-    this.postService.like(post);
+  like(index: number) {
+    this.postService.like(index);
   }
 
-  unlike(post: Post) {
-    this.postService.unlike(post);
+  unlike(index: number) {
+    this.postService.unlike(index);
   }
 
   viewSinglePost(id: number) {
-
     this.router.navigate(['/post', id]);
-
   }
 
   onDeletePost(post: Post, id: number) {

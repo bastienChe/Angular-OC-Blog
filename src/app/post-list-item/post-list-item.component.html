@@ -21,8 +21,8 @@
             <p class="list-group-item-text">{{ post.content }}</p>
           </div>
           <div style="margin-top: 25px;">
-            <button class='btn btn-success' (click)='like(post)'>Like</button>
-            <button class='btn btn-danger' (click)='unlike(post)'>unLike</button>
+            <button class='btn btn-success' (click)='like(i)'>Like</button>
+            <button class='btn btn-danger' (click)='unlike(i)'>unLike</button>
             <button class='btn'> {{ post.nbLike }}</button>
           </div>
         </div>
