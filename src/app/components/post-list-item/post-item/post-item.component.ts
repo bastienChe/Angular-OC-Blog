@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Post } from '../../models/post.model';
-import { PostItemService } from '../../services/post-item.service';
+import { Post } from '../../../models/post.model';
+import { PostItemService } from '../../../services/post-item.service';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from '@angular/router';
 

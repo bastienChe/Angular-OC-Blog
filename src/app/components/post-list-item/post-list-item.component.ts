@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../models/post.model';
+import { Post } from '../../models/post.model';
 import { Subscription } from 'rxjs/Subscription';
-import { PostItemService } from '../services/post-item.service';
+import { PostItemService } from '../../services/post-item.service';
 import { Router } from '@angular/router';
 
 @Component({
